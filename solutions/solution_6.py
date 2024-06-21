@@ -1,17 +1,21 @@
-# Prompt the user to enter the coordinates (x1, y1) and (x2, y2)
-x1, y1 = int(input("Enter x1: ")), int(input("Enter y1: "))
-x2, y2 = int(input("Enter x2: ")), int(input("Enter y2: "))
+import math
 
-# Calculate the distance of point A from the origin using the formula x1^2 + y1^2
-distance_a = x1**2 + y1**2
+def distance_from_origin(x, y):
+    return math.sqrt(x**2 + y**2)
 
-# Calculate the distance of point B from the origin using the formula x2^2 + y2^2
-distance_b = x2**2 + y2**2
+def further_from_origin(x1, y1, x2, y2):
+    distance1 = distance_from_origin(x1, y1)
+    distance2 = distance_from_origin(x2, y2)
 
-# Compare the distances and print the appropriate message
-if distance_a > distance_b:
-    print("A is further from the origin.")
-elif distance_a < distance_b:
-    print("B is further from the origin.")
-else:
-    print("A and B are at the same distance from the origin.")
+    if distance1 < distance2:
+        return "Point A is further from the origin."
+    elif distance2 < distance1:
+        return "Point B is further from the origin."
+    else:
+        return "Both points are at the same distance from the origin."
+
+x1 = int(input("Enter x-coordinate of point A: "))
+y1 = int(input("Enter y-coordinate of point A: "))
+x2 = int(input("Enter x-coordinate of point B: "))
+y2 = int(input("Enter y-coordinate of point B: "))
+

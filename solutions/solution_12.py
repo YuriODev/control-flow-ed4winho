@@ -1,20 +1,18 @@
-# Input: A four-digit number
-number = int(input("Enter a four-digit number: "))
+def replace_digits_with_char(number, char):
+  number_str = str(number)
+  replaced_str = ""
 
-# Process each digit and replace even digits with '*'
-thousands = number // 1000
-hundreds = (number % 1000) // 100
-tens = (number % 100) // 10
-ones = number % 10
+  for digit in number_str:
+      if digit.isdigit():
+          replaced_str += char
+      else:
+          replaced_str += digit
 
-# Check each digit and replace if necessary
-thousands = '*' if thousands % 2 == 0 else str(thousands)
-hundreds = '*' if hundreds % 2 == 0 else str(hundreds)
-tens = '*' if tens % 2 == 0 else str(tens)
-ones = '*' if ones % 2 == 0 else str(ones)
+  replaced_number = int(replaced_str)
+  return replaced_number
 
-# Combine the digits back into a string
-result = thousands + hundreds + tens + ones
+number = 12345
+char_to_replace = '*'
 
-# Output the result
-print(result)
+new_number = replace_digits_with_char(number, char_to_replace)
+print(new_number)

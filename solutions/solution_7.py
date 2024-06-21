@@ -1,65 +1,22 @@
-# Prompt the user to enter the first number and store it in the variable num1
-num1 = float(input("Enter the first number: "))
+import math
 
-# Prompt the user to enter the second number and store it in the variable num2
-num2 = float(input("Enter the second number: "))
+def distance_from_origin(x, y):
+    return math.sqrt(x**2 + y**2)
 
-# Prompt the user to enter the operation they want to perform and store it in the variable operation
-operation = input("Enter the operation (+, -, *, /, mod, pow, div): ")
+def further_from_origin(x1, y1, x2, y2):
+    distance1 = distance_from_origin(x1, y1)
+    distance2 = distance_from_origin(x2, y2)
 
-# Check if the operation is addition
-if operation == "+":
-    # If it is, perform the addition and store the result in the variable result
-    result = num1 + num2
-
-# Check if the operation is subtraction
-elif operation == "-":
-    # If it is, perform the subtraction and store the result in the variable result
-    result = num1 - num2
-
-# Check if the operation is multiplication
-elif operation == "*":
-    # If it is, perform the multiplication and store the result in the variable result
-    result = num1 * num2
-
-# Check if the operation is division
-elif operation == "/":
-    # If it is, check if the second number is not zero
-    if num2 != 0:
-        # If it's not zero, perform the division and store the result in the variable result
-        result = num1 / num2
+    if distance1 < distance2:
+        return "Point A is further from the origin."
+    elif distance2 < distance1:
+        return "Point B is further from the origin."
     else:
-        # If it is zero, set the result to "Division by 0!"
-        result = "Division by 0!"
+        return "Both points are at the same distance from the origin."
 
-# Check if the operation is modulo
-elif operation == "mod":
-    # If it is, check if the second number is not zero
-    if num2 != 0:
-        # If it's not zero, perform the modulo operation and store the result in the variable result
-        result = num1 % num2
-    else:
-        # If it is zero, set the result to "Division by 0!"
-        result = "Division by 0!"
+x1 = int(input("Enter x-coordinate of point A: "))
+y1 = int(input("Enter y-coordinate of point A: "))
+x2 = int(input("Enter x-coordinate of point B: "))
+y2 = int(input("Enter y-coordinate of point B: "))
 
-# Check if the operation is exponentiation
-elif operation == "pow":
-    # If it is, perform the exponentiation and store the result in the variable result
-    result = num1 ** num2
-
-# Check if the operation is floor division
-elif operation == "div":
-    # If it is, check if the second number is not zero
-    if num2 != 0:
-        # If it's not zero, perform the floor division and store the result in the variable result
-        result = num1 // num2
-    else:
-        # If it is zero, set the result to "Division by 0!"
-        result = "Division by 0!"
-
-# If none of the above conditions are met, set the result to "Invalid operation"
-else:
-    result = "Invalid operation"
-
-# Print the result
-print(result)
+print(further_from_origin(x1, y1, x2, y2))

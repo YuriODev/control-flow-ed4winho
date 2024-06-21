@@ -1,18 +1,18 @@
-# Prompt the user to enter a three-digit number
+def compare_digits(num):
+  num_str = str(num)
+
+  first_digit = int(num_str[0])
+  second_digit = int(num_str[1])
+  last_digit = int(num_str[2])
+
+  sum_first_last = first_digit + last_digit
+
+  if sum_first_last > second_digit:
+      print(">")
+  elif sum_first_last < second_digit:
+      print("<")
+  else:
+      print("=")
+
 number = int(input("Enter a three-digit number: "))
-
-# Extract the first, second, and third digits of the number
-first_digit = number // 100
-second_digit = (number // 10) % 10
-third_digit = number % 10
-
-# Calculate the sum of the first and third digits
-sum_comparison = first_digit + third_digit
-
-# Compare the sum with the second digit and print the result
-if sum_comparison > second_digit:
-    print(">")
-elif sum_comparison < second_digit:
-    print("<")
-else:
-    print("=")
+compare_digits(number)
