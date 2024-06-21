@@ -1,9 +1,26 @@
-ticket = input("Enter a ticket number: ")
-print(check_lucky(ticket))
-def check_lucky(ticket):
-    sum_first = sum(int(digit) for digit in ticket[:3])
-    sum_last = sum(int(digit) for digit in ticket[3:])
-    if sum_first == sum_last:
-        return "Happy"
+print("Are you in a hurry?")
+answer = input()
+
+if answer.lower() == 'yes':
+    print("Keep walking.")
+else:
+    print("Do you remember their name?")
+    answer = input()
+
+    if answer.lower() == 'no':
+        print("Don't say hi.")
     else:
-        return "Ordinary"
+        print("Is the person an ex?")
+        answer = input()
+
+        if answer.lower() == 'yes':
+            print("Keep walking.")
+        else:
+            print("Are you in an unusual situation?")
+            answer = input()
+
+            if answer.lower() == 'yes':
+                print("Don't say hi.")
+            else:
+                print("Say hi.")
+By following the series of questions and providing Yes o
