@@ -1,23 +1,17 @@
+def is_right_angle(a, b, c):
+    ab = (a[0] - b[0])**2 + (a[1] - b[1])**2
+    bc = (b[0] - c[0])**2 + (b[1] - c[1])**2
+    ca = (c[0] - a[0])**2 + (c[1] - a[1])**2
+    sides = [ab, bc, ca]
+    sides.sort()
+    return sides[0] + sides[1] == sides[2]
 
-# Prompt the user to enter the coordinates of three points
-x1, y1 = int(input("Enter x1: ")), int(input("Enter y1: "))
-x2, y2 = int(input("Enter x2: ")), int(input("Enter y2: "))
-x3, y3 = int(input("Enter x3: ")), int(input("Enter y3: "))
+# Input
+a = tuple(map(int, input().split()))
+b = tuple(map(int, input().split()))
+c = tuple(map(int, input().split()))
 
-# Calculate the squares of the distances between the points
-a2 = (x2-x1)**2 + (y2-y1)**2
-b2 = (x3-x2)**2 + (y3-y2)**2
-c2 = (x1-x3)**2 + (y1-y3)**2
-
-# Check if any of the sides of the triangle is equal to 0
-# We can use the Pythagorean theorem to check if the triangle is right-angled
-# a2 + b2 == c2 or b2 + c2 == a2 or c2 + a2 == b2
-# If any of these conditions is True, then the triangle is right-angled
-# Otherwise, it is not
-
-if a2 == 0 or b2 == 0 or c2 == 0:
-    print("No")
-elif a2 + b2 == c2 or b2 + c2 == a2 or c2 + a2 == b2:
+if is_right_angle(a, b, c):
     print("Yes")
 else:
     print("No")
