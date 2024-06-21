@@ -23,4 +23,4 @@ else:
                 print("Don't say hi.")
             else:
                 print("Say hi.")
-By following the series of questions and providing Yes o
+
